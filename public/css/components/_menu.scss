@@ -263,6 +263,7 @@ header{
 // ============== MENU MOBILE ================ 
 // =========================================== 
 .menu-mobile{
+    opacity: 0;
     height: 100vh;
     width: 100%;
     margin-top: 72px;
@@ -270,7 +271,7 @@ header{
     top: 0;
     left: -100%;
     background-color: $primary-dark;
-    transition: .5s ease;
+    transition: 1s ease;
     z-index: 990;
 
     li{
@@ -301,6 +302,7 @@ header{
     position: absolute;
     top: 0;
     left: 0;
+    opacity: 1;
 }
 
 .bx.active{

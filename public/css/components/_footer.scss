@@ -9,9 +9,6 @@ footer{
     align-items: center;
 }
 
-.footer-menu-item{
-    margin-right: $gap-3;
-}
 
 .footer-menu-link{
     display: inline-block;
@@ -28,5 +25,31 @@ footer{
     }
 }
 
+.footer-items-left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    @include responsive(s){
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+.footer-items-right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    
+    @include responsive(s){
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+}
 
 // Veriicar espaçamentos do footer para deixar mais fiel ao figma

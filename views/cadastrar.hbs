@@ -1,9 +1,9 @@
 <section class="container">
    
     {{#if errors}}
-         <ul class="alert alert-danger">
+         <ul class="error-container mt-6">
             {{#each errors}}
-                <li style="list-style-type: none;"> {{this}}</li>
+                <li class="error-message mt-1"> {{this}}</li>
             {{/each}}
         </ul>
     {{/if}}
@@ -12,7 +12,7 @@
       
         <div class="grid-4 disappear"></div>
 
-        <div class="grid-4 card-form mt-9">
+        <div class="grid-4 card-form mt-3">
             <h4 class="text-gradient">Cadastrar</h4>
             <form action="/user/cadastrar" method="post" enctype="multipart/form-data" class="mt-3">
                 <div>

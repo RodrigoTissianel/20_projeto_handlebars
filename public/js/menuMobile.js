@@ -6,6 +6,7 @@ const menuMobile = document.querySelector('.menu-mobile');
 const linkMobile = document.querySelectorAll('.link-menu-mobile');
 
 bx.addEventListener('click', () =>{
+    window.scrollTo(0, 0);
     bx.classList.toggle('active');
     menuMobile.classList.toggle('showmenu');
 });

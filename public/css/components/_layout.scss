@@ -51,6 +51,13 @@ $gutter: 32px;
   
   
   @else if $device == xs {
+    // For resolutions between 540px than 620px
+    @media screen and (max-width: $container-s) {
+      @content;
+    }
+  }
+
+  @else if $device == xxs {
     // For resolutions less than 540px
     @media screen and (max-width: $container-xs) {
       @content;
@@ -187,12 +194,6 @@ $gutter: 32px;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-
-    @include responsive(s){
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
 }
 .flex-end-column {
     display: flex;
@@ -439,4 +440,37 @@ $gutter: 32px;
 .book-container{
     width: 311px;
     height: 447px;
+}
+
+// ======================================
+// ============= MESSAGES ===============
+// ======================================
+
+.error-container{
+    // list-style-type: none;
+    border-radius: 4px;
+    max-width: 416px;
+    padding: 8px 8px 8px 32px;
+    background-color: #F5B5B5;
+    margin: 0 auto;
+}
+
+.error-message{
+    color: $red;
+}
+
+.success-container{
+    list-style-type: none;
+    border-radius: 4px;
+    // position: absolute;
+    // top: 16px;
+    // left: 0;
+    z-index: 980;
+    padding: 8px 8px 8px 32px;
+    background-color: #C8FAE8;
+    margin: 0 auto;
+}
+
+.success-message{
+    color: $green;
 }

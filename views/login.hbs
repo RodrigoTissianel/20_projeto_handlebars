@@ -2,17 +2,17 @@
 
 <section class="container">
      {{#if errors.length}}
-        <div class="alert alert-danger message-erro">
+        <ul class="error-container mt-6">
             {{#each errors}}
-                <p>{{this}}</p>
+                <li class="error-message">{{this}}</li>
             {{/each}}
-        </div>
+        </ul>
     {{/if}}
 
     <div class="row">
         <div class="grid-4 disappear"></div>
 
-        <div class="grid-4 card-form mt-9">
+        <div class="grid-4 card-form mt-3">
             <h4 class="text-gradient">Login</h4>
             <form action="/user/login" method="post" class="mt-4">
                 <div>

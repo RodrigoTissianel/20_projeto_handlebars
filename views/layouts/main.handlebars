@@ -15,7 +15,9 @@
 
 <body>
     {{#if successMessage}}
-    <div class="alert alert-success message">{{successMessage}}</div>
+        <div class="success-container">
+            <p class="success-message">{{successMessage}}</p>
+        </div>
     {{/if}}
 
     <header>
@@ -120,9 +122,40 @@
                 </a>
             </div>
 
-            <div>
-                <a href="/user/login" class="btn-login">Login</a>
-            </div>
+            {{#if session}}
+                {{#if session.imagem}}      
+                    <div class="ml-3 profile-container">                 
+                        <div class="profile">
+                            <img class="profile-img" src="data:image/png;base64,{{session.imagem}}" usemap="opcoes">
+                        </div>
+
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item">
+                                <a href="/form" class="dropdown-link">Cadastrar livros</a>
+                            </li>
+
+                            <li class="dropdown-item">
+                                <a href="/user/edit" class="dropdown-link">Editar perfil</a>
+                            </li>
+
+                            <li class="dropdown-item">
+                                <a href="/books/edit/:id" class="dropdown-link">Meus livros</a>
+                            </li>
+
+                            <li class="dropdown-item">
+                                <a href="/user/logout" class="dropdown-link">Sair</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+            {{else}}
+                <div class="login ml-3">
+                    <a href="/user/login" class="btn-login">Login</a>
+                </div>
+            {{/if}}
+                {{else}}
+                    <img src="/img/perfil.webp">
+                {{/if}}
         </nav>
     </header>
 
@@ -184,6 +217,7 @@
                     <div class="logo">
                         <img src="../../svg/logo.svg" class="logo-svg" alt="logo do site">
                     </div>
+
                     <h4 class="ml-1 text-white">HallBooks</h4>
                 </div>
 
@@ -191,60 +225,63 @@
             </div>
 
             <div class="row">
-                <div class="grid-6 flex-start-column py-0">
-                    <h5 class="text-green">Deixou passar algo?</h5>
+                <div class="grid-6 footer-items-left py-0">
+                    
+                        <h5 class="text-green">Deixou passar algo?</h5>
 
-                    <ul class="flex-start footer-menu mt-1">
-                        <li class="footer-menu-item">
-                            <a href="/" class="footer-menu-link">Home</a>
-                        </li>
-
-                        <li class="footer-menu-item">
-                            <a href="/#about" class="footer-menu-link">Sobre</a>
-                        </li>
-
-                        {{#if session}}
-                            {{#if session.imagem}}
-                                <li class="footer-menu-item" style="display: none;">
-                                    <a href="/user/cadastrar" class="footer-menu-link" 
-                                    >Cadastre-se</a>
-                                </li>
-
-                                <li class="footer-menu-item">
-                                    <a href="/form" class="footer-menu-link">Cadastrar Livros</a>
-                                </li>
-
-                        {{else}}
-                            <li class="footer-menu-item" style="display: none;">
-                                <a href="/form" class="footer-menu-link" 
-                                >Cadastrar Livros</a>
-                            </li>
-                            
-                            <li class="footer-menu-item">
-                                <a href="/user/cadastrar" class="footer-menu-link">Cadastre-se</a>
+                        <ul class="footer-menu mt-1">
+                            <li class="mr-2">
+                                <a href="/" class="footer-menu-link">Home</a>
                             </li>
 
-                            
-                        {{/if}}
+                            <li class="mr-2">
+                                <a href="/#about" class="footer-menu-link">Sobre</a>
+                            </li>
+
+                            {{#if session}}
+                                {{#if session.imagem}}
+                                    <li class="mr-2" style="display: none;">
+                                        <a href="/user/cadastrar" class="footer-menu-link" 
+                                        >Cadastre-se</a>
+                                    </li>
+
+                                    <li class="mr-2">
+                                        <a href="/form" class="footer-menu-link">Cadastrar Livros</a>
+                                    </li>
+
+                            {{else}}
+                                <li class="mr-2" style="display: none;">
+                                    <a href="/form" class="footer-menu-link" 
+                                    >Cadastrar Livros</a>
+                                </li>
+                                
+                                <li class="mr-2">
+                                    <a href="/user/cadastrar" class="footer-menu-link">Cadastre-se</a>
+                                </li>
+
+                                
                             {{/if}}
+                                {{/if}}
 
-                        <li class="footer-menu-item">
-                            <a href="/books" class="footer-menu-link">Livros</a>
-                        </li>
-                    </ul>
+                            <li>
+                                <a href="/books" class="footer-menu-link">Livros</a>
+                            </li>
+                        </ul>
+ 
                 </div>
 
-                <div class="grid-3 disappear"></div>
 
-                <div class="grid-3 flex-center-column py-1">
-                    <h5 class="text-green">Algum livro em mente?</h5>
+                <div class="grid-6 footer-items-right mt-1">
 
-                    <div class="search mt-1">
-                        <form class="flex-start">
-                            <input type="text" name="search" class="search-input" placeholder="Buscar livros">
-                            <button class="search-button"></button>
-                        </form>
-                    </div>
+                        <h5 class="text-green">Algum livro em mente?</h5>
+
+                        <div class="search mt-1">
+                            <form class="flex-start">
+                                <input type="text" name="search" class="search-input" placeholder="Buscar livros">
+                                <button class="search-button"></button>
+                            </form>
+                        </div>
+
                 </div>
             </div>
 

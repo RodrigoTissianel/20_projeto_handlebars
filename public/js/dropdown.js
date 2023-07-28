@@ -1,16 +1,23 @@
 
 
-const profileContainer = document.querySelector('.profile-container')
-const dropdownMenu = document.querySelector('.dropdown-menu')
+const profileContainer = document.querySelectorAll('.profile-container')
 
-function showDropdown(e){
-    dropdownMenu.classList.toggle('active-dropdown-menu');
+const dropdownMenu = document.querySelectorAll('.dropdown-menu')
+
+for (let i = 0; i < profileContainer.length; i++) {
+    const container = profileContainer[i]
+    const dropdown = dropdownMenu[i]
+
+     container.addEventListener('click', () =>{
+         dropdown.classList.toggle('active-dropdown-menu');
+     })
+
+     dropdown.addEventListener('mouseleave', () =>{
+        dropdown.classList.remove('active-dropdown-menu');
+     })
 }
 
-function hideDropdown(e){
-    dropdownMenu.classList.remove('active-dropdown-menu');
-}
 
-profileContainer.addEventListener('click', showDropdown);
-dropdownMenu.addEventListener('mouseleave', hideDropdown);
+
+
 

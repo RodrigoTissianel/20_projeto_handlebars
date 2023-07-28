@@ -3,9 +3,9 @@
 <section class="container">
    
     {{#if errors}}
-         <ul class="alert alert-danger">
+         <ul class="error-container">
             {{#each errors}}
-                <li style="list-style-type: none;"> {{this}}</li>
+                <li class="error-message"> {{this}}</li>
             {{/each}}
         </ul>
     {{/if}}
