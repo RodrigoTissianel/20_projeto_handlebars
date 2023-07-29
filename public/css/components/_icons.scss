@@ -1,0 +1,9 @@
+.icon-container{
+    width: 48px;
+    height: 48px;
+    
+    @include responsive(s){
+        width: 32px;
+        height: 32px;
+    }
+}

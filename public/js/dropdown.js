@@ -16,8 +16,3 @@ for (let i = 0; i < profileContainer.length; i++) {
         dropdown.classList.remove('active-dropdown-menu');
      })
 }
-
-
-
-
-

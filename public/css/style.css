@@ -598,8 +598,8 @@ html {
 .error-container {
   border-radius: 4px;
   max-width: 416px;
-  padding: 8px 8px 8px 32px;
-  background-color: #F5B5B5;
+  padding: 8px 32px;
+  background-color: #FAC8C8;
   margin: 0 auto;
 }
 
@@ -609,11 +609,21 @@ html {
 
 .success-container {
   list-style-type: none;
-  border-radius: 4px;
-  z-index: 980;
-  padding: 8px 8px 8px 32px;
+  width: 496px;
   background-color: #C8FAE8;
-  margin: 0 auto;
+  border-radius: 4px;
+  text-align: center;
+  z-index: 995;
+  padding: 8px 16px;
+  position: absolute;
+  top: 96px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.5s ease;
+}
+
+.desable-success-container {
+  top: -100px;
 }
 
 .success-message {
@@ -800,6 +810,11 @@ p {
 
 .mt-4 {
   margin-top: 32px;
+}
+@media screen and (max-width: 960px) {
+  .mt-4 {
+    margin-top: 16px;
+  }
 }
 
 .mt-5 {
@@ -1505,6 +1520,17 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 
+.icon-container {
+  width: 48px;
+  height: 48px;
+}
+@media screen and (max-width: 960px) {
+  .icon-container {
+    width: 32px;
+    height: 32px;
+  }
+}
+
 a {
   cursor: pointer;
   display: inline-block;
@@ -1567,6 +1593,25 @@ a:hover {
 .btn-primary:hover {
   opacity: 0.9;
   box-shadow: 2px 2px 8px rgba(37, 157, 128, 0.7);
+}
+
+.btn-login {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #0A8C6D;
+  transition: 0.5s ease;
+}
+@media screen and (max-width: 960px) {
+  .btn-login {
+    background-color: transparent;
+    color: #6CE0C4;
+    font-size: 16px;
+  }
+}
+.btn-login:hover {
+  opacity: 0.7;
 }
 
 .search-input {
@@ -1774,7 +1819,7 @@ header {
   width: 100%;
   height: 72px;
   position: fixed;
-  z-index: 999;
+  z-index: 990;
   background-color: #04634D;
 }
 
@@ -1878,16 +1923,13 @@ header {
   width: 50%;
 }
 
-.btn-login {
-  display: inline-block;
-  padding: 10px 16px;
-  border: 0;
-  border-radius: 8px;
-  background: #0A8C6D;
-  transition: 0.5s ease;
+.login-desktop {
+  display: block;
 }
-.btn-login:hover {
-  opacity: 0.7;
+@media screen and (max-width: 960px) {
+  .login-desktop {
+    displa: none;
+  }
 }
 
 .profile-container {
@@ -2020,6 +2062,15 @@ s .profile-container:hover::after {
   transform-origin: center;
   transform: translate(-50%, -50%);
   transition: 0.5s ease;
+}
+
+.login-mobile {
+  display: none;
+}
+@media screen and (max-width: 960px) {
+  .login-mobile {
+    display: block;
+  }
 }
 
 .menu-mobile {

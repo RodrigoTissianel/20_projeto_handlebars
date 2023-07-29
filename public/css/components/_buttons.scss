@@ -49,6 +49,26 @@ a{
     }
 }
 
+.btn-login{
+    display: inline-block;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 8px;
+    background: $secondary-dark;
+    transition: .5s ease;
+    
+    @include responsive(s){
+        background-color: transparent;
+        color: $primary-light;
+        font-size: 16px;
+    }
+
+    &:hover{
+        opacity: .7;
+    }
+}
+
+
 .search-input{
     border-radius: 8px 0px 0px 8px;
     border: 0px;

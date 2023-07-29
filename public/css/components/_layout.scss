@@ -447,11 +447,10 @@ $gutter: 32px;
 // ======================================
 
 .error-container{
-    // list-style-type: none;
     border-radius: 4px;
     max-width: 416px;
-    padding: 8px 8px 8px 32px;
-    background-color: #F5B5B5;
+    padding: 8px 32px;
+    background-color: #FAC8C8;
     margin: 0 auto;
 }
 
@@ -461,14 +460,21 @@ $gutter: 32px;
 
 .success-container{
     list-style-type: none;
-    border-radius: 4px;
-    // position: absolute;
-    // top: 16px;
-    // left: 0;
-    z-index: 980;
-    padding: 8px 8px 8px 32px;
+    width: 496px;
     background-color: #C8FAE8;
-    margin: 0 auto;
+    border-radius: 4px;
+    text-align: center;
+    z-index: 995;
+    padding: 8px 16px;
+    position: absolute;
+    top: 96px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .5s ease;
+}
+
+.desable-success-container{
+    top: -100px;
 }
 
 .success-message{
