@@ -1,5 +1,5 @@
 footer{
-    background: linear-gradient(226.93deg, #259D80 14.9%, #04634D 85.41%);
+    background: $primary-dark;
 }
 
 .footer-menu{
@@ -7,11 +7,12 @@ footer{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    @include responsive(xs){
+        flex-direction: column;
+    }
 }
 
-.footer-menu-item{
-    margin-right: $gap-3;
-}
 
 .footer-menu-link{
     display: inline-block;
@@ -25,8 +26,36 @@ footer{
 
     &:hover{
         padding: 8px 16px 16px 16px;
+
+        @include responsive(xs){
+            padding: 16px 8px 16px 16px;
+        }
     }
 }
 
+.footer-items-left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
 
-// Veriicar espaçamentos do footer para deixar mais fiel ao figma
+    @include responsive(s){
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+.footer-items-right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    
+    @include responsive(s){
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+}

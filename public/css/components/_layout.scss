@@ -5,7 +5,7 @@ $container-xl: 1440px;
 $container-l: 1216px;
 $container-m: 960px;
 $container-s: 620px;
-$container-xs: 340px;
+$container-xs: 540px;
 $gutter: 32px;
 
 // Mixin of media-queries
@@ -51,7 +51,14 @@ $gutter: 32px;
   
   
   @else if $device == xs {
-    // For resolutions less than 340px
+    // For resolutions between 540px than 620px
+    @media screen and (max-width: $container-s) {
+      @content;
+    }
+  }
+
+  @else if $device == xxs {
+    // For resolutions less than 540px
     @media screen and (max-width: $container-xs) {
       @content;
     }
@@ -92,11 +99,9 @@ $gutter: 32px;
 .container {
     max-width: $container-l;
     margin: 0 auto;
-  
+    position: relative;
     padding: 96px 24px;
-  
     overflow: hidden;
-    
   
     // clearfix
     &::after{
@@ -106,15 +111,26 @@ $gutter: 32px;
     }
   
     @include responsive(s) {
-      flex-direction: column;
-  
-      padding: 96px 16px;
+        flex-direction: column;
+        padding: 96px 16px;
     }
   }
+
+.responsive-grid{
+    @include responsive(s){
+        width: calc(50% - #{$gutter});
+        float: left;
+    }
+    @include responsive(xs){
+        width: calc(100% - #{$gutter});
+        float: none;
+    }
+}
 
 .visible{
     overflow: visible;
 }
+
 
 .disappear{
     display: block;
@@ -167,6 +183,32 @@ $gutter: 32px;
     align-items: center;
 }
 
+.flex-start-responsive{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    @include responsive(s){
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+}
+
+.flex-start-column-responsive{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    @include responsive(s){
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
 .flex-end {
     display: flex;
     justify-content: flex-end;
@@ -176,13 +218,13 @@ $gutter: 32px;
 .flex-start-column {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
 }
 .flex-end-column {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: column;
 }
   
@@ -328,10 +370,16 @@ $gutter: 32px;
     overflow: hidden;
   }
 
+.line-clamp-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+  }
+
 // ======================================
 // ============== PAGE HOME =============
 // ======================================
-
 .banner{
     width: 100%;
     background-image: url("../img/bookshelf.png");
@@ -342,24 +390,27 @@ $gutter: 32px;
     justify-content: flex-start;
     align-items: center;
     position: relative;
-
+    
     &::after{
         content: '';
         width: 100%;
         height: 372px;
         background-color: $black-normal;
-        opacity: .5;
+        opacity: .6;
         position: absolute;
         top: 0;
         left: 0;
         z-index: 0;
     }
+    
 }
 
 .banner-content{
+    padding: 96px 24px;
     width: $container-l;
     margin: 0 auto;
     z-index: 1;
+    
 }
 
 .card{
@@ -377,6 +428,7 @@ $gutter: 32px;
     &:hover{
         cursor: pointer;
         box-shadow: 4px 4px 8px $gray-6;
+        transform: translate3d(0px, -8px, 0px);
     }
 }
 
@@ -405,8 +457,20 @@ $gutter: 32px;
     align-items: center;
     flex-direction: column;
     box-shadow: 4px 4px 8px $gray-6;
+
+    @include responsive(s){
+        margin: 0 auto;
+        max-width: 420px
+    }
 }
 
+.password-warning{
+    display: none;
+}
+
+input[type="password"]:focus + .password-warning{
+    display: block;
+}
 
 // ======================================
 // ============= PAGE BOOK ==============
@@ -415,4 +479,107 @@ $gutter: 32px;
 .book-container{
     width: 311px;
     height: 447px;
+}
+
+// ======================================
+// ============ PAGE PROFILE ============
+// ======================================
+.profile-big{
+    width: 196px;
+    height: 196px;
+    border-radius: 50%;
+    background: linear-gradient(#6CE0C4, #04634D) border-box;
+    border: 8px solid transparent;
+
+}
+
+.profile-img-big{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user-text{
+    margin-left: 16px;
+
+    @include responsive(s){
+        text-align: center;
+        margin-left: 0;
+        margin-top: 16px;
+    }
+}
+
+.add-profile-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(225deg, #259D80 0%, #259D80 0.01%, #04634D 100%);
+    cursor: pointer;
+    position: absolute;
+    bottom: 0px;
+    right: -8px;
+}
+
+.menu-profile{
+    list-style-type: none;
+    width: 280px;
+}
+
+.menu-profile-item{
+    border-bottom: 2px solid;
+    border-image: linear-gradient(270deg, rgba(37, 157, 128, 0.00) 0%, #259D80 100%, #259D80 100%) 10;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+.menu-profile-link{
+    width: 100%;
+    color: $black-normal;
+    padding: 8px 16px 8px 16px;
+
+    &:hover{
+        padding: 8px 16px 8px 24px;
+    }
+}
+// ======================================
+// ============= MESSAGES ===============
+// ======================================
+
+.error-container{
+    border-radius: 4px;
+    max-width: 416px;
+    padding: 8px 32px;
+    background-color: #FAC8C8;
+    margin: 0 auto;
+}
+
+.error-message{
+    color: $red;
+}
+
+.success-container{
+    list-style-type: none;
+    width: 496px;
+    background-color: #C8FAE8;
+    border-radius: 4px;
+    text-align: center;
+    z-index: 995;
+    padding: 8px 16px;
+    position: absolute;
+    top: 96px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .5s ease;
+}
+
+.desable-success-container{
+    top: -100px;
+}
+
+.success-message{
+    color: $green;
 }

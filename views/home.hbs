@@ -11,11 +11,13 @@
             </p>
             {{#if session}}
                 {{#if session.imagem}}
-                    <a href="/user/cadastrar" class="mt-3 link" style="display:none">Cadastre-se</a>
-                     <a href="/livros/cadastrar" class="mt-3 link">Cadastrar Livros</a>
+                    <a href="/user/cadastrar" class="mt-3 btn-primary" style="display:none">Cadastre-se</a>
+
+                     <a href="/form" class="mt-3 btn-primary">Cadastrar Livros</a>
                 {{else}}
-                    <a href="/user/cadastrar" class="mt-3 link" >Cadastre-se</a>
-                     <a href="/livros/cadastrar" class="mt-3 link" style="display: none;">Cadastrar Livros</a>
+                    <a href="/user/cadastrar" class="mt-3 btn-primary" >Cadastre-se</a>
+
+                     <a href="/form" class="mt-3 btn-primary" style="display: none;">Cadastrar Livros</a>
                 {{/if}}
             {{/if}}
             
@@ -30,7 +32,7 @@
 
             <div class="bookId">
                 {{#each booksRecentes}}
-                    <div class=" grid-3 card mt-5">
+                    <div class=" grid-3 card mt-5 responsive-grid">
                         <div class="poster">
                             <a href="/books/{{this.idbooks}}">
                                 <img src="data:image/png;base64,{{this.imagem}}" alt="{{this.titulo}}" class="book-img">
@@ -39,14 +41,15 @@
                             <a href="/books/{{this.idbooks}}" class="text-black">
                                 <h6 class="mt-2 line-clamp">{{this.titulo}}</h6>
                             </a>
-                            <p class="mt-1 subtitle">{{this.autor}}</p>
+                            <p class="mt-1 subtitle text-black">{{this.autor}}</p>
                     </div>
                 {{/each}}
                 
             </div>
         </div>
+
         <div class="flex-start">
-            <a href="/books" class="text-darkgreen letter-spacing mt-2">Ver todos os livros</a>
+            <a href="/books" class="text-darkgreen letter-spacing mt-2 link">Ver todos os livros</a>
         </div>
     </section>
 </main>
@@ -57,7 +60,7 @@
     <div class="row ">
         <div class="grid-2 disappear "></div>
 
-        <div class="grid-8 flex-center-column  mt-1">
+        <div class="grid-8 flex-center-column mt-1">
             <h3 class="text-gradient ">Como funciona</h3>
             <p class=" mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                 Fusce scelerisque dictum dignissim. Praesent finibus tempus 
@@ -74,12 +77,12 @@
     <div class="row">
         <div class="grid-2 disappear"></div>
 
-        <div class="grid-4 mt-1 py-0 flex-center-column">
+        <div class="grid-4 mt-1 py-0 flex-center-column responsive-grid">
             <div class="icon-container">
-                <img src="../svg/icon-book.svg" alt="Book icon">
+                <img src="../svg/icon-book.svg" class="w-100 h-100" alt="Book icon">
             </div>
 
-            <h4 class="mt-4 text-darkgreen">Cadastre seus livros</h4>
+            <h5 class="mt-4 text-darkgreen">Cadastre seus livros</h5>
             <p class="mt-2">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                  Fusce scelerisque dictum dignissim. Praesent finibus 
@@ -87,12 +90,13 @@
             </p>
         </div>
 
-        <div class="grid-4 mt-1 py-0 flex-center-column">
+
+        <div class="grid-4 mt-1 py-0 flex-center-column responsive-grid">
             <div class="icon-container">
-                <img src="../svg/icon-edit.svg" alt="Book icon">
+                <img src="../svg/icon-edit.svg" class="w-100 h-100" alt="Edit icon">
             </div>
 
-            <h4 class="mt-4 text-darkgreen">Edite sua biblioteca</h4>
+            <h5 class="mt-4 text-darkgreen">Edite sua biblioteca</h5>
             <p class="mt-2">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                  Fusce scelerisque dictum dignissim. Praesent finibus 
@@ -107,14 +111,22 @@
         {{#if session}}
             {{#if session.imagem}}
                 <div class="grid-12 mt-3 mb-1 flex-center" style="display: none;">
-                    <a href="/user/cadastrar" class="link">Cadastre-se</a>
+                    <a href="/user/cadastrar" class="btn-primary">Cadastre-se</a>
                 </div>
-                 <a href="/livros/cadastrar" class="mt-3 link">Cadastrar Livros</a>
+
+                <div class="grid-12 mt-3 mb-1 flex-center">
+                    <a href="/cadastrar" class="mt-3 btn-primary">Cadastrar Livros</a>
+                </div>
+
                 {{else}}
                  <div class="grid-12 mt-3 mb-1 flex-center">
-                    <a href="/user/cadastrar" class="link">Cadastre-se</a>
+                    <a href="/user/cadastrar" class="btn-primary">Cadastre-se</a>
                 </div>
-                 <a href="/livros/cadastrar" class="mt-3 link" style="display: none;">Cadastrar Livros</a>
+
+                <div class="grid-12 mt-3 mb-1 flex-center">
+                    <a href="/cadastrar" class="mt-3 btn-primary" style="display: none;">Cadastrar Livros</a>
+                </div>
+                 
             {{/if}}
         
         {{/if}}

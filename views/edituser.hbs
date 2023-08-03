@@ -1,50 +1,111 @@
 
-
 <section class="container">
-   
-    {{#if errors}}
-         <ul class="alert alert-danger">
-            {{#each errors}}
-                <li style="list-style-type: none;"> {{this}}</li>
-            {{/each}}
-        </ul>
-    {{/if}}
-    
     <div class="row">
-      
-        <div class="grid-4 disappear"></div>
+        <div class="grid-6 mt-9 flex-start-column-responsive">
+            <div class="flex-start-responsive">
+                {{#if session.imagem}}
+                    <div class="relative ">
+                        <div class="profile-big relative">
+                            <img class="profile-img-big" src="data:image/png;base64,{{session.imagem}}" usemap="opcoes">
+                        </div>
+                        
+                        <form action="/user/edit" method="post" enctype="multipart/form-data">
+                            <label for="file" class="add-profile-image">
+                                <img src="../svg/icon-camera.svg" alt="">
+                            </label>
+                            <input type="file" name="imagem" id="file">
+                        </form>
+                    </div>
+                {{else}}
+                    <div class="relative">
+                        <div class="profile-big relative">
+                            <img class="profile-img-big" src="/img/perfil.webp">
+                        </div>
+                        
+                        <form action="/user/edit" method="post" enctype="multipart/form-data">
+                            <label for="file" class="add-profile-image">
+                                <img src="../svg/icon-camera.svg" alt="">
+                            </label>
+                            <input type="file" name="imagem" id="file">
+                        </form>
+                    </div>
+                {{/if}}
+            
+                <div class="user-text">
+                    <h4 class="bold">Olá, Rodrigo!</h4>
+                    <p class="mt-1">@RodrigoTissianel</p>
+                </div>
+            </div>
 
-        <div class="grid-4 card-form">
-            <h3 class="text-gradient">Editar Perfil</h3>
-            <form action="/user/cadastrar" method="post" enctype="multipart/form-data" class="mt-3">
-                <div>
+            <ul class="menu-profile mt-3">
+                <li class="menu-profile-item mt-2">
+                    <img src="../svg/icon-user.svg" alt="icon user">
+                    <a href="#" class="menu-profile-link update-user-info">Atualizar dados</a>
+                </li>
+
+                <li class="menu-profile-item mt-2">
+                    <img src="../svg/icon-plus.svg" alt="icon plus">
+                    <a href="/form" class="menu-profile-link">Cadastrar livros</a>
+                </li>
+
+                <li class="menu-profile-item mt-2">
+                    <img src="../svg/icon-folder.svg" alt="icon folder">
+                    <a href="/books/edit/:id" class="menu-profile-link">Meus livros</a>
+                </li>
+
+                <li class="menu-profile-item mt-2">
+                    <img src="../svg/icon-logout.svg" alt="icon logout">
+                    <a href="/user/logout" class="menu-profile-link">Sair</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="grid-2 disappear"></div>
+
+        <div class="grid-4 mt-8 flex-start-column-responsive">
+            
+        {{#if errors}}
+            <ul class="error-container mt-2">
+                {{#each errors}}
+                    <li class="error-message mt-2"> {{this}}</li>
+                {{/each}}
+            </ul>
+        {{/if}}
+
+        <h4 class="text-gradient mt-1">Meus dados</h4>
+        
+        <form action="/user/edit" 
+        method="post" 
+        enctype="multipart/form-data" 
+        class="user-info-form flex-start-column">
+
+            <div class="row">    
+                <div class="mt-2">
                     <label for="name">Nome:</label>
-                    <input type="text" name="nome"  id="name"  class="mt-1">
+                    <input type="text" name="nome"  id="name"  class="mt-1" readonly>
                 </div>
 
                 <div class="mt-2">
                     <label for="email">E-mail:</label>
-                    <input type="email" name="email" id="email" class="mt-1" required>
+                    <input type="email" name="email" id="email" class="mt-1" readonly>
                 </div>
 
                 <div class="mt-2">
                     <label for="senha">Senha:</label>
-                    <input type="password" id="senha" name="senha"  class="mt-1">
+                    <input type="password" id="senha" name="senha"  class="mt-1" readonly>
                 </div>
 
                 <div class="mt-2">
-                    <label for="file" class="btn">imagem do perfil</label>
-                    <input type="file" name="imagem" id="file">
+                    <label for="senha">Confirmar senha:</label>
+                    <input type="password" id="senha" name="senha"  class="mt-1" readonly>
                 </div>
+            </div>
 
-                
-                <div class="mt-4">
-                    <input type="submit" value="Editar" class="link">
-                </div>
-            </form>
+            <div class="mt-3">
+                <input type="submit" value="Salvar" class="btn-primary"> 
+            </div>
+        </form>
+
         </div>
-
-        <div class="grid-4 disappear"></div>
     </div>
-   
 </section>

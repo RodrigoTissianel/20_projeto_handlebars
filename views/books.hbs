@@ -1,10 +1,10 @@
 
 <section class="container">
-    <div class="row">
-        <h3 class="text-gradient">Livros Disponíveis</h3>
+    <div class="row mt-9">
+        <h4 class="text-gradient">Livros Disponíveis</h4>
 
         {{#each book}}
-        <div class="grid-3 card mt-5">
+        <div class="grid-3 card mt-5 responsive-grid">
             <div class="poster">
                 <a href="/books/{{this.idbooks}}">
                     <img src="data:image/png;base64,{{imagem}}" alt="{{this.titulo}}" class="w-100">
@@ -14,7 +14,7 @@
             <a href="/books/{{this.idbooks}}" class="text-black">
                 <h6 class="mt-2 line-clamp">{{this.titulo}}</h6>
             </a>
-            <p class="mt-1 subtitle">{{this.autor}}</p>
+            <p class="mt-1 subtitle text-black">{{this.autor}}</p>
         </div>
         {{/each}}
     </div>

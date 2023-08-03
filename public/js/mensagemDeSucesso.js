@@ -1,7 +1,7 @@
-const msg = document.getElementsByClassName('message')[0]
+const msg = document.getElementsByClassName('success-container')[0]
 
 setTimeout(() => {
-    msg.style.display = 'none';
-  }, 2000);
+    msg.classList.add('desable-success-container');
+  }, 1500);
 
 
