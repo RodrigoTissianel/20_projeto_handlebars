@@ -105,7 +105,7 @@ header{
     display: block;
 
     @include responsive(s){
-        displa: none;
+        display: none;
     }
 }
 
@@ -277,8 +277,6 @@ header{
     z-index: 990;
 
     li{
-        // border: 1px solid $primary-normal;
-
         .link-menu-mobile{
             width: 100%;
             height: 100%;

@@ -183,6 +183,32 @@ $gutter: 32px;
     align-items: center;
 }
 
+.flex-start-responsive{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    @include responsive(s){
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+}
+
+.flex-start-column-responsive{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    @include responsive(s){
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
 .flex-end {
     display: flex;
     justify-content: flex-end;
@@ -344,10 +370,16 @@ $gutter: 32px;
     overflow: hidden;
   }
 
+.line-clamp-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+  }
+
 // ======================================
 // ============== PAGE HOME =============
 // ======================================
-
 .banner{
     width: 100%;
     background-image: url("../img/bookshelf.png");
@@ -432,6 +464,13 @@ $gutter: 32px;
     }
 }
 
+.password-warning{
+    display: none;
+}
+
+input[type="password"]:focus + .password-warning{
+    display: block;
+}
 
 // ======================================
 // ============= PAGE BOOK ==============
@@ -442,6 +481,70 @@ $gutter: 32px;
     height: 447px;
 }
 
+// ======================================
+// ============ PAGE PROFILE ============
+// ======================================
+.profile-big{
+    width: 196px;
+    height: 196px;
+    border-radius: 50%;
+    background: linear-gradient(#6CE0C4, #04634D) border-box;
+    border: 8px solid transparent;
+
+}
+
+.profile-img-big{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user-text{
+    margin-left: 16px;
+
+    @include responsive(s){
+        text-align: center;
+        margin-left: 0;
+        margin-top: 16px;
+    }
+}
+
+.add-profile-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(225deg, #259D80 0%, #259D80 0.01%, #04634D 100%);
+    cursor: pointer;
+    position: absolute;
+    bottom: 0px;
+    right: -8px;
+}
+
+.menu-profile{
+    list-style-type: none;
+    width: 280px;
+}
+
+.menu-profile-item{
+    border-bottom: 2px solid;
+    border-image: linear-gradient(270deg, rgba(37, 157, 128, 0.00) 0%, #259D80 100%, #259D80 100%) 10;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+.menu-profile-link{
+    width: 100%;
+    color: $black-normal;
+    padding: 8px 16px 8px 16px;
+
+    &:hover{
+        padding: 8px 16px 8px 24px;
+    }
+}
 // ======================================
 // ============= MESSAGES ===============
 // ======================================
