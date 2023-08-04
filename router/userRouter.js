@@ -86,7 +86,7 @@ router.post('/cadastrar', upload.single('imagem'), async (req, res) => {
         }else{
             if (!file) {
                 // Obtendo o código base64 da imagem
-                const imageBuffer = fs.readFileSync('public/img/perfil.webp');
+                const imageBuffer = fs.readFileSync('public/img/perfil.jpg');
                 const base64Image = imageBuffer.toString('base64');
     
                 // Definindo a imagem padrão na sessão
